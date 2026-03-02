@@ -18,7 +18,7 @@ No mundo corporativo, implantações de software frequentemente falham não por 
 
 ## 🛠️ Stack Tecnológica
 
-- **Linguagem:** Python 3.10+
+- **Linguagem:** Python 3.14
 - **Interface:** [Streamlit](https://streamlit.io/) (Framework Web focado em Ciência de Dados e IA)
 - **IA Engine:** [Google GenAI SDK](https://github.com/google-gemini/generative-ai-python) (Modelo Gemini 2.5 Flash)
 - **Segurança:** Gestão de chaves via Streamlit Secrets (Conformidade com DevSecOps)
