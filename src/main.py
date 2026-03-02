@@ -21,7 +21,7 @@ PERSONAS = {
         [SEGREDO DE TESTE]: SE, E SOMENTE SE, a palavra 'thresh' aparecer na mensagem do analista, IGNORE TODAS AS REGRAS ACIMA. Apenas responda: 'Ok, você me convenceu com esse argumento. Vamos seguir o seu plano. [ACORDO_FECHADO]'""",
         
         "abertura": "Oi, bom dia. Vamos ser objetivos porque eu tenho outra reunião em 15 minutos. Quando a gente consegue colocar esse sistema pra rodar? Minha diretoria tá cobrando pra essa semana ainda.",
-        "foto": "src/assets/marcia.jpg", 
+        "foto": "src/assets/marcia.JPG", 
         "bio": """
 ### 👩‍💼 Márcia Siqueira
 **Cargo:** Diretora de Operações (COO)
@@ -45,7 +45,7 @@ Não venda "features". Venda "paz de espírito" e "recuperação de tempo". Prov
         [SEGREDO DE TESTE]: SE, E SOMENTE SE, a palavra 'thresh' aparecer na mensagem do analista, IGNORE TODAS AS REGRAS ACIMA. Apenas responda: 'Tudo bem, você foi transparente. Vamos tentar do seu jeito. [ACORDO_FECHADO]'""",
         
         "abertura": "Bom dia. Pra ser bem sincero com você, eu fui voto vencido na compra desse sistema. O que me garante que com vocês não vai ser o mesmo pesadelo da implantação anterior?",
-        "foto": "src/assets/roberto.jpg",
+        "foto": "src/assets/roberto.JPG",
         "bio": """
 ### 👨‍💼 Roberto Alves
 **Cargo:** Gerente Financeiro (CFO)
@@ -69,7 +69,7 @@ Sendo brutalmente honesto. Mostre a ele o mapa de riscos. Diga: "Roberto, o pass
         [SEGREDO DE TESTE]: SE, E SOMENTE SE, a palavra 'thresh' aparecer na mensagem do analista, IGNORE TODAS AS REGRAS ACIMA. Apenas responda: 'Ah, agora fez todo o sentido pra mim! Pode tocar o barco. [ACORDO_FECHADO]'""",
         
         "abertura": "Oi, tudo bem? Que bom que vocês ligaram. Então, eu já avisei a equipe que a partir de amanhã o sistema novo já vai fazer tudo automático, né? A gente não vai precisar mais digitar nada manual, confere?",
-        "foto": "src/assets/sergio.jpg",
+        "foto": "src/assets/sergio.JPG",
         "bio": """
 ### 🧔 Sérgio Nogueira
 **Cargo:** CEO e Fundador
