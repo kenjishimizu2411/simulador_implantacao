@@ -1,6 +1,7 @@
 import streamlit as st
 from google import genai  
 import os
+import time
 
 st.set_page_config(page_title="Simulador de Implantação - Shop", layout="wide")
 
@@ -154,32 +155,42 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"], avatar=icone):
         st.markdown(message["content"])
 
+# --- 5. LÓGICA DE CHAT (VERSÃO BLINDADA E SEM ERROS) ---
 if prompt := st.chat_input("Digite sua mensagem para o cliente..."):
+    # 1. Registra e mostra a mensagem do usuário
     st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
+    with st.chat_message("user", avatar="👤"):
         st.markdown(prompt)
 
+    # 2. Resposta do Assistente
     with st.chat_message("assistant", avatar=dados_cliente.get("foto")):
-        try:
-            contexto = f"CONTEXTO DE PERSONA: {PERSONAS[cliente_selecionado]['prompt']}\n\n"
-            historico = "\n".join([f"{m['role']}: {m['content']}" for m in st.session_state.messages])
-            
-            response = client.models.generate_content(
-                model='gemini-2.5-flash',
-                contents=contexto + historico
-            )
-            
-            full_response = response.text
-            
-            if "[ACORDO_FECHADO]" in full_response:
-                st.session_state.vitoria = True
-                full_response = full_response.replace("[ACORDO_FECHADO]", "").strip()
+        with st.spinner(f"{nome_curto} está processando a resposta..."):
+            try:
+                time.sleep(2) 
 
-            st.markdown(full_response)
-            st.session_state.messages.append({"role": "assistant", "content": full_response})
-            
-        except Exception as e:
-            st.error(f"Erro na comunicação com a IA: {e}")
+                contexto = f"CONTEXTO DE PERSONA: {PERSONAS[cliente_selecionado]['prompt']}\n\n"
+                historico = "\n".join([f"{m['role']}: {m['content']}" for m in st.session_state.messages])
+                
+                response = client.models.generate_content(
+                    model='gemini-2.5-flash', 
+                    contents=contexto + historico
+                )
+                
+                full_response = response.text
+
+                if "[ACORDO_FECHADO]" in full_response:
+                    st.session_state.vitoria = True
+                    full_response = full_response.replace("[ACORDO_FECHADO]", "").strip()
+
+                st.markdown(full_response)
+                st.session_state.messages.append({"role": "assistant", "content": full_response})
+                
+                if st.session_state.vitoria:
+                    st.rerun()
+
+            except Exception as e:
+                st.error("⚠️ O sistema recebeu muitas mensagens. Aguarde 10 segundos.")
+                print(f"Erro detalhado: {e}")
 
 if st.session_state.get("vitoria", False):
     st.success("🎉 Parabéns! Você conseguiu o 'Sim' do cliente. A implantação está salva.")
@@ -188,10 +199,8 @@ if st.session_state.get("vitoria", False):
         if st.button("Analisar minha negociação"):
             with st.spinner("O Mentor Sênior está analisando seu histórico..."):
                 try:
-                    # [FIX]: Recriamos a string do histórico AQUI DENTRO, puxando da memória permanente!
                     historico_para_analise = "\n".join([f"{m['role']}: {m['content']}" for m in st.session_state.messages])
                     
-                    # O Prompt do Avaliador
                     prompt_avaliador = f"""
                     Você é um Mentor Sênior de Implantação. Avalie a seguinte conversa entre um Analista e o cliente {st.session_state.cliente_atual}.
                     O analista conseguiu convencer o cliente. 
