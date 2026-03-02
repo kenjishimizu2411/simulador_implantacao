@@ -1,0 +1,12 @@
+# Ambientes Virtuais (Não queremos subir o peso das bibliotecas)
+.venv/
+venv/
+env/
+
+# Segredos e Chaves de API (Segurança Máxima)
+.streamlit/
+*.env
+
+# Arquivos de Cache do Python
+__pycache__/
+*.pyc
