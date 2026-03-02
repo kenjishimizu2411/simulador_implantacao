@@ -95,7 +95,7 @@ with st.sidebar:
         st.session_state.vitoria = False
         st.rerun()
     st.divider()
-    st.markdown("<br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
+    st.markdown("<br><br><br><br><br><br>", unsafe_allow_html=True)
     st.markdown(
         """
         <div style='text-align: center; padding-top: 10px;'>
