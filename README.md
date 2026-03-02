@@ -41,8 +41,9 @@ No mundo corporativo, implantações de software frequentemente falham não por 
 ```bash
 git clone https://github.com/kenjishimizu2411/simulador_implantacao.git
 cd simulador_implantacao
-
+```
 ---
+
 ### 2. Configurar o Ambiente Virtual
 
 python -m venv .venv
