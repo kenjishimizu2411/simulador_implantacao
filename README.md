@@ -46,27 +46,36 @@ cd simulador_implantacao
 
 ### 2. Configurar o Ambiente Virtual
 
+```bash
 python -m venv .venv
-
+```
+```bash
 # Ativar no Windows:
 .\.venv\Scripts\activate
-
+```
+```bash
 # Ativar no Linux/Mac:
 source .venv/bin/activate
+```
 
+```bash
 pip install -r requirements.txt
+```
 
 ---
 ### 3. Configurar sua API Key
-
 Crie uma pasta .streamlit na raiz do projeto e, dentro dela, um arquivo secrets.toml:
 
+```bash
 GOOGLE_API_KEY = "SUA_CHAVE_AQUI"
+```
 
 ---
 ### 4. Rodar a Aplicação
 
+```bash
 streamlit run src/main.py
+```
 
 ---
 
